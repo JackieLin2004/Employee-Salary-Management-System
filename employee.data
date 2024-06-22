@@ -1,0 +1,21 @@
+Manager Alice F 1980 5 20 2 1
+Manager Bob M 1975 8 15 0 3
+Sales Charlie M 1990 2 28 50000 0.05
+Sales David F 1985 12 12 30000 0.04
+Mgr Emily F 1978 9 17 1 2 40000 0.03 550 1200
+Mgr Frank M 1983 7 22 2 0 60000 0.02 900 1200
+Wage Grace F 1992 4 10 20000 0.03 160 20
+Wage Henry M 1987 11 5 15000 0.05 180 25
+Manager Irene F 1982 3 30 3 1
+Manager Jack M 1979 6 25 0 0
+Sales Karen F 1995 10 19 45000 0.06
+Sales Louis M 1988 1 4 35000 0.04
+Mgr Megan F 1984 5 12 1 1 50000 0.03 750 1500
+Mgr Nathan M 1991 2 16 0 2 55000 0.02 600 1100
+Wage Olivia F 1993 8 28 25000 0.04 170 22
+Wage Paul M 1986 12 9 18000 0.05 150 24
+Manager Quinn F 1981 11 11 1 0
+Manager Roger M 1974 7 7 2 3
+Sales Sarah F 1994 6 6 48000 0.07
+Sales Tom M 1989 3 14 42000 0.03
+Manager lili F 2020 2 12 1 1
