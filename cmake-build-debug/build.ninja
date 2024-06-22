@@ -61,6 +61,36 @@ build CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj: CXX_COMPI
   OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
 
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/CManager.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/CManager.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\CManager.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/CSales.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/CSales.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\CSales.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/CMgr.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/CMgr.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\CMgr.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/CWage.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/CWage.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\CWage.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/system.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/system.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\system.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target EmployeeSalaryManagementSystem
@@ -69,7 +99,7 @@ build CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj: CXX_COMPI
 #############################################
 # Link the executable EmployeeSalaryManagementSystem.exe
 
-build EmployeeSalaryManagementSystem.exe: CXX_EXECUTABLE_LINKER__EmployeeSalaryManagementSystem_Debug CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj
+build EmployeeSalaryManagementSystem.exe: CXX_EXECUTABLE_LINKER__EmployeeSalaryManagementSystem_Debug CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CManager.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CSales.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CMgr.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CWage.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/system.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir

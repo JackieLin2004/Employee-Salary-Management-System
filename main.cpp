@@ -1,6 +1,7 @@
-#include <iostream>
+#include "system.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    EmployeeSystem system;
+    system.startEmployeeSalaryManagementSystem();
     return 0;
 }

@@ -1,3 +1,21 @@
 # ninja log v5
 1	306	7406801382696595	CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj	468d1030d9d3657
 308	466	7406801384163109	EmployeeSalaryManagementSystem.exe	60be66d7c8d4cac
+1	349	7407611034166312	CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj	468d1030d9d3657
+18	476	7407611035277702	CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj	20da4965b0b17ca5
+33	477	7407611035417285	CMakeFiles/EmployeeSalaryManagementSystem.dir/CManager.cpp.obj	44fa85f6effc5b2
+49	522	7407611035877920	CMakeFiles/EmployeeSalaryManagementSystem.dir/CMgr.cpp.obj	8e75dadd6ef35fbd
+80	549	7407611036073539	CMakeFiles/EmployeeSalaryManagementSystem.dir/CSales.cpp.obj	3ea41302c8fe0b99
+92	595	7407611036394420	CMakeFiles/EmployeeSalaryManagementSystem.dir/CWage.cpp.obj	7ed19e2d11936916
+63	1021	7407611040710688	CMakeFiles/EmployeeSalaryManagementSystem.dir/system.cpp.obj	24a7fdc18ef8b651
+1022	1877	7407611049128172	EmployeeSalaryManagementSystem.exe	c87c44412ab865d9
+2	654	7407611654546726	CMakeFiles/EmployeeSalaryManagementSystem.dir/system.cpp.obj	24a7fdc18ef8b651
+654	864	7407611656364469	EmployeeSalaryManagementSystem.exe	c87c44412ab865d9
+2	762	7407615231961110	CMakeFiles/EmployeeSalaryManagementSystem.dir/system.cpp.obj	24a7fdc18ef8b651
+762	960	7407615233858831	EmployeeSalaryManagementSystem.exe	c87c44412ab865d9
+2	427	7407616486286075	CMakeFiles/EmployeeSalaryManagementSystem.dir/CManager.cpp.obj	44fa85f6effc5b2
+17	460	7407616486630928	CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj	20da4965b0b17ca5
+49	484	7407616486850318	CMakeFiles/EmployeeSalaryManagementSystem.dir/CSales.cpp.obj	3ea41302c8fe0b99
+33	485	7407616486870856	CMakeFiles/EmployeeSalaryManagementSystem.dir/CMgr.cpp.obj	8e75dadd6ef35fbd
+65	491	7407616486929296	CMakeFiles/EmployeeSalaryManagementSystem.dir/CWage.cpp.obj	7ed19e2d11936916
+492	686	7407616488803700	EmployeeSalaryManagementSystem.exe	c87c44412ab865d9

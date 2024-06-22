@@ -1,0 +1,11 @@
+#ifndef EMPLOYEESALARYMANAGEMENTSYSTEM_BDAY_H
+#define EMPLOYEESALARYMANAGEMENTSYSTEM_BDAY_H
+
+// 定义生日结构
+struct BDay {
+    int year;
+    int month;
+    int day;
+};
+
+#endif //EMPLOYEESALARYMANAGEMENTSYSTEM_BDAY_H
