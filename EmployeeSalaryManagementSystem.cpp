@@ -16,7 +16,7 @@ struct BDay {
 
 // 基类 CEmployee 雇员类
 class CEmployee {
-protected:
+private:
     string _name;   // 员工姓名
     string _sex;    // 员工性别
     string _kind;   // 员工类型
@@ -45,12 +45,16 @@ public:
 
     void set_sex(const string &sex) { _sex = sex; }
 
+    void set_kind(const string &kind) { _kind = kind; }
+
     void set_birthday(const BDay &birthday) { _birthday = birthday; }
+
+    void set_salary(double salary) { _salary = salary; }
 
     // 输出相关信息
     virtual void print_data() const {
         cout << "\n员工姓名：" << _name << "\t性别：" << _sex << "\t类别：" << _kind << endl;
-        cout << "出生日期" << _birthday.year << "-" << _birthday.month << "-" << _birthday.day
+        cout << "出生日期：" << _birthday.year << "-" << _birthday.month << "-" << _birthday.day
              << "\t薪水：" << _salary << endl;
     }
 
@@ -69,10 +73,10 @@ public:
     // 重载构造函数
     CManager(string name, string sex, BDay birthday, int lateDays, int leaveDays)
             : late(lateDays), leave(leaveDays), m_salary(1000) {
-        _name = name;
-        _sex = sex;
-        _kind = "Manager";
-        _birthday = birthday;
+        set_name(name);
+        set_sex(sex);
+        set_kind("Manager");
+        set_birthday(birthday);
         computePay();
     }
 
@@ -84,7 +88,7 @@ public:
 
     // 计算经理月薪：_salary=固定薪水－扣款
     void computePay() override {
-        _salary = m_salary - (late * 50 + leave * 200);
+        set_salary(m_salary - (late * 50 + leave * 200));
     }
 
     // 公共访问函数，包括返回相关值和赋值
@@ -108,17 +112,17 @@ public:
 // CSales 类 销售员类
 class CSales : virtual public CEmployee {
 private:
-    double total;   // 销售总额，迟到1天扣50元
+    double total;   // 销售总额
     double percent; // 销售提成
 
 public:
     // 重载构造函数
     CSales(string name, string sex, BDay birthday, double totalSales, double commissionPercent)
             : total(totalSales), percent(commissionPercent) {
-        _name = name;
-        _sex = sex;
-        _kind = "Sales";
-        _birthday = birthday;
+        set_name(name);
+        set_sex(sex);
+        set_kind("Sales");
+        set_birthday(birthday);
         computePay();
     }
 
@@ -130,7 +134,7 @@ public:
 
     // 计算薪水
     void computePay() override {
-        _salary = total * percent;
+        set_salary(total * percent);
     }
 
     // 公共访问函数，包括返回相关值和赋值
@@ -162,7 +166,7 @@ public:
             : CManager(name, sex, birthday, lateDays, leaveDays),
               CSales(name, sex, birthday, totalSales, commissionPercent),
               fixedSalary(fixedSal), salesCommission(salesComm) {
-        _kind = "Mgr";
+        set_kind("Mgr");
         computePay();
     }
 
@@ -170,14 +174,14 @@ public:
     void computePay() override {
         fixedSalary = get_m_salary() - (get_late() * 50 + get_leave() * 200);
         salesCommission = get_total_sales() * get_commission_percent();
-        _salary = fixedSalary + salesCommission;
+        set_salary(fixedSalary + salesCommission);
     }
 
     // 输出市场经理信息
     void print_data() const override {
-        cout << "\n员工姓名：" << _name << "\t性别：" << _sex << "\t类别：" << _kind << endl;
-        cout << "出生日期" << _birthday.year << "-" << _birthday.month << "-" << _birthday.day
-             << "\t薪水：" << _salary << endl;
+        cout << "\n员工姓名：" << get_name() << "\t性别：" << get_sex() << "\t类别：" << get_kind() << endl;
+        cout << "出生日期：" << get_birthday().year << "-" << get_birthday().month << "-" << get_birthday().day
+             << "\t薪水：" << get_salary() << endl;
         cout << "迟到天数：" << get_late() << "\t请假天数：" << get_leave() << endl;
         cout << "销售总额：" << get_total_sales() << "\t销售提成：" << get_commission_percent() << endl;
         cout << "固定工资：" << fixedSalary << "\t销售提成：" << salesCommission << endl;
@@ -187,7 +191,6 @@ public:
     double get_fixed_salary() const { return fixedSalary; }
 
     double get_sales_commission() const { return salesCommission; }
-
 };
 
 // CWage 类 时薪销售员类
@@ -202,14 +205,14 @@ public:
     CWage(string name, string sex, BDay birthday, double totalSales, double commissionPercent, double timeWorked,
           double hourlyRate)
             : CSales(name, sex, birthday, totalSales, commissionPercent), time(timeWorked), hourmo(hourlyRate) {
-        _kind = "Wage";
+        set_kind("Wage");
         computePay();
     }
 
     // 计算薪水
     void computePay() override {
         salesCommission = get_total_sales() * get_commission_percent();
-        _salary = time * hourmo + salesCommission;
+        set_salary(time * hourmo + salesCommission);
     }
 
     // 输出时薪销售员的信息
@@ -374,9 +377,9 @@ vector<CEmployee *> find_employees_by_type(vector<CEmployee *> &employees, const
 void modify_employee(CEmployee *employee) {
     try {
         if (employee) {
-            cout << "修改雇员信息: " << endl;
-            cout << "当前姓名: " << employee->get_name() << endl;
-            cout << "请输入新的姓名 (或按Enter键保持不变): ";
+            cout << "修改雇员信息：" << endl;
+            cout << "当前姓名：" << employee->get_name() << endl;
+            cout << "请输入新的姓名 (或按Enter键保持不变)：";
             string name;
             cin.ignore();
             getline(cin, name);
@@ -384,8 +387,8 @@ void modify_employee(CEmployee *employee) {
                 employee->set_name(name);
             }
 
-            cout << "当前性别: " << employee->get_sex() << endl;
-            cout << "请输入新的性别 (或按Enter键保持不变): ";
+            cout << "当前性别：" << employee->get_sex() << endl;
+            cout << "请输入新的性别 (或按Enter键保持不变)：";
             string sex;
             getline(cin, sex);
             if (!sex.empty()) {
@@ -393,8 +396,8 @@ void modify_employee(CEmployee *employee) {
             }
 
             BDay birthday = employee->get_birthday();
-            cout << "当前生日: " << birthday.year << "-" << birthday.month << "-" << birthday.day << endl;
-            cout << "请输入新的生日 (格式: YYYY MM DD, 或按Enter键保持不变): ";
+            cout << "当前生日：" << birthday.year << "-" << birthday.month << "-" << birthday.day << endl;
+            cout << "请输入新的生日 (格式: YYYY MM DD, 或按Enter键保持不变)：";
             string bday_input;
             getline(cin, bday_input);
             if (!bday_input.empty()) {
@@ -402,7 +405,7 @@ void modify_employee(CEmployee *employee) {
                 int year, month, day;
                 ss >> year >> month >> day;
                 if (ss.fail()) {
-                    throw runtime_error("生日格式错误，请输入正确的格式 (YYYY MM DD)。");
+                    throw runtime_error("生日格式错误，请输入正确的格式 (YYYY MM DD)!");
                 }
                 employee->set_birthday({year, month, day});
             }
@@ -412,8 +415,8 @@ void modify_employee(CEmployee *employee) {
             if (kind == "Manager") {
                 CManager *mgr = dynamic_cast<CManager *>(employee);
                 if (mgr) {
-                    cout << "当前迟到天数: " << mgr->get_late() << endl;
-                    cout << "请输入新的迟到天数 (或按Enter键保持不变): ";
+                    cout << "当前迟到天数：" << mgr->get_late() << endl;
+                    cout << "请输入新的迟到天数 (或按Enter键保持不变)：";
                     string late_input;
                     getline(cin, late_input);
                     if (!late_input.empty()) {
@@ -421,14 +424,14 @@ void modify_employee(CEmployee *employee) {
                             int late = stoi(late_input);
                             mgr->set_late(late);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的迟到天数不是有效的整数。");
+                            throw runtime_error("输入的迟到天数不是有效的整数！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的迟到天数超出有效范围。");
+                            throw runtime_error("输入的迟到天数超出有效范！");
                         }
                     }
 
-                    cout << "当前请假天数: " << mgr->get_leave() << endl;
-                    cout << "请输入新的请假天数 (或按Enter键保持不变): ";
+                    cout << "当前请假天数：" << mgr->get_leave() << endl;
+                    cout << "请输入新的请假天数 (或按Enter键保持不变)：";
                     string leave_input;
                     getline(cin, leave_input);
                     if (!leave_input.empty()) {
@@ -436,17 +439,17 @@ void modify_employee(CEmployee *employee) {
                             int leave = stoi(leave_input);
                             mgr->set_leave(leave);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的请假天数不是有效的整数。");
+                            throw runtime_error("输入的请假天数不是有效的整数！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的请假天数超出有效范围。");
+                            throw runtime_error("输入的请假天数超出有效范围！");
                         }
                     }
                 }
             } else if (kind == "Sales") {
                 CSales *sales = dynamic_cast<CSales *>(employee);
                 if (sales) {
-                    cout << "当前销售总额: " << sales->get_total_sales() << endl;
-                    cout << "请输入新的销售总额 (或按Enter键保持不变): ";
+                    cout << "当前销售总额：" << sales->get_total_sales() << endl;
+                    cout << "请输入新的销售总额 (或按Enter键保持不变)：";
                     string total_input;
                     getline(cin, total_input);
                     if (!total_input.empty()) {
@@ -454,13 +457,13 @@ void modify_employee(CEmployee *employee) {
                             double total = stod(total_input);
                             sales->set_total_sales(total);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的销售总额不是有效的数字。");
+                            throw runtime_error("输入的销售总额不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的销售总额超出有效范围。");
+                            throw runtime_error("输入的销售总额超出有效范围！");
                         }
                     }
 
-                    cout << "当前佣金百分比: " << sales->get_commission_percent() << endl;
+                    cout << "当前佣金百分比：" << sales->get_commission_percent() << endl;
                     cout << "请输入新的佣金百分比 (或按Enter键保持不变): ";
                     string percent_input;
                     getline(cin, percent_input);
@@ -469,9 +472,9 @@ void modify_employee(CEmployee *employee) {
                             double percent = stod(percent_input);
                             sales->set_commission_percent(percent);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的佣金百分比不是有效的数字。");
+                            throw runtime_error("输入的佣金百分比不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的佣金百分比超出有效范围。");
+                            throw runtime_error("输入的佣金百分比超出有效范围！");
                         }
                     }
                 }
@@ -480,8 +483,8 @@ void modify_employee(CEmployee *employee) {
                 if (mgr) {
                     CSales *sales = mgr;
 
-                    cout << "当前销售总额: " << sales->get_total_sales() << endl;
-                    cout << "请输入新的销售总额 (或按Enter键保持不变): ";
+                    cout << "当前销售总额：" << sales->get_total_sales() << endl;
+                    cout << "请输入新的销售总额 (或按Enter键保持不变)：";
                     string total_input;
                     getline(cin, total_input);
                     if (!total_input.empty()) {
@@ -489,14 +492,14 @@ void modify_employee(CEmployee *employee) {
                             double total = stod(total_input);
                             sales->set_total_sales(total);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的销售总额不是有效的数字。");
+                            throw runtime_error("输入的销售总额不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的销售总额超出有效范围。");
+                            throw runtime_error("输入的销售总额超出有效范围！");
                         }
                     }
 
-                    cout << "当前佣金百分比: " << sales->get_commission_percent() << endl;
-                    cout << "请输入新的佣金百分比 (或按Enter键保持不变): ";
+                    cout << "当前佣金百分比：" << sales->get_commission_percent() << endl;
+                    cout << "请输入新的佣金百分比 (或按Enter键保持不变)：";
                     string percent_input;
                     getline(cin, percent_input);
                     if (!percent_input.empty()) {
@@ -504,17 +507,17 @@ void modify_employee(CEmployee *employee) {
                             double percent = stod(percent_input);
                             sales->set_commission_percent(percent);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的佣金百分比不是有效的数字。");
+                            throw runtime_error("输入的佣金百分比不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的佣金百分比超出有效范围。");
+                            throw runtime_error("输入的佣金百分比超出有效范围！");
                         }
                     }
                 }
             } else if (kind == "Wage") {
                 CWage *wage = dynamic_cast<CWage *>(employee);
                 if (wage) {
-                    cout << "当前工作小时数: " << wage->get_time() << endl;
-                    cout << "请输入新的工作小时数 (或按Enter键保持不变): ";
+                    cout << "当前工作小时数：" << wage->get_time() << endl;
+                    cout << "请输入新的工作小时数 (或按Enter键保持不变)：";
                     string time_input;
                     getline(cin, time_input);
                     if (!time_input.empty()) {
@@ -522,14 +525,14 @@ void modify_employee(CEmployee *employee) {
                             double timeWorked = stod(time_input);
                             wage->set_time(timeWorked);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的工作小时数不是有效的数字。");
+                            throw runtime_error("输入的工作小时数不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的工作小时数超出有效范围。");
+                            throw runtime_error("输入的工作小时数超出有效范围！");
                         }
                     }
 
-                    cout << "当前时薪: " << wage->get_hourly_rate() << endl;
-                    cout << "请输入新的时薪 (或按Enter键保持不变): ";
+                    cout << "当前时薪：" << wage->get_hourly_rate() << endl;
+                    cout << "请输入新的时薪 (或按Enter键保持不变)：";
                     string hourlyRate_input;
                     getline(cin, hourlyRate_input);
                     if (!hourlyRate_input.empty()) {
@@ -537,17 +540,18 @@ void modify_employee(CEmployee *employee) {
                             double hourlyRate = stod(hourlyRate_input);
                             wage->set_hourly_rate(hourlyRate);
                         } catch (const invalid_argument &e) {
-                            throw runtime_error("输入的时薪不是有效的数字。");
+                            throw runtime_error("输入的时薪不是有效的数字！");
                         } catch (const out_of_range &e) {
-                            throw runtime_error("输入的时薪超出有效范围。");
+                            throw runtime_error("输入的时薪超出有效范围！");
                         }
                     }
                 }
             }
-            employee->computePay(); // 重新计算薪水
+            // 重新计算薪水
+            employee->computePay();
         }
     } catch (const exception &e) {
-        cout << "修改失败: " << e.what() << endl;
+        cout << "修改失败：" << e.what() << endl;
     }
 }
 

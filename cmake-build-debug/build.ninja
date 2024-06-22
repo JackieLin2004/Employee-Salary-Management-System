@@ -55,6 +55,12 @@ build CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj: CXX_COMPILER__
   OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
 
+build CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj: CXX_COMPILER__EmployeeSalaryManagementSystem_unscanned_Debug D$:/A_CPP_Source/EmployeeSalaryManagementSystem/CEmployee.cpp || cmake_object_order_depends_target_EmployeeSalaryManagementSystem
+  DEP_FILE = CMakeFiles\EmployeeSalaryManagementSystem.dir\CEmployee.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target EmployeeSalaryManagementSystem
@@ -63,7 +69,7 @@ build CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the executable EmployeeSalaryManagementSystem.exe
 
-build EmployeeSalaryManagementSystem.exe: CXX_EXECUTABLE_LINKER__EmployeeSalaryManagementSystem_Debug CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj
+build EmployeeSalaryManagementSystem.exe: CXX_EXECUTABLE_LINKER__EmployeeSalaryManagementSystem_Debug CMakeFiles/EmployeeSalaryManagementSystem.dir/main.cpp.obj CMakeFiles/EmployeeSalaryManagementSystem.dir/CEmployee.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\EmployeeSalaryManagementSystem.dir
