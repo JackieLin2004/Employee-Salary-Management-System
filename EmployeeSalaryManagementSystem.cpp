@@ -283,6 +283,7 @@ void read_employees(vector<CEmployee *> &employees, const string &filename) {
 
 }
 
+// 保存雇员信息函数，将更新的信息写进文件
 void write_employees(const vector<CEmployee *> &employees, const string &filename) {
     try {
         ofstream outfile(filename);
