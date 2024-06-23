@@ -1,2 +1,5 @@
 /cmake-build-debug/employee.data
-/cmake-build-debug/salary_output.txt
+/cmake-build-debug/salary.data
+
+employee.data
+salary.data

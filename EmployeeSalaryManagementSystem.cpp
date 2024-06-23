@@ -839,8 +839,8 @@ int main() {
                     string sort_by;
                     cout << "请输入排序方式 (name/salary/type)：";
                     cin >> sort_by;
-                    output_salary(employees, "salary_output.txt", sort_by);
-                    cout << "薪水信息已保存至 salary_output.txt" << endl;
+                    output_salary(employees, "salary.data", sort_by);
+                    cout << "薪水信息已保存至 salary.data" << endl;
                     break;
                 }
                 case 3: {
