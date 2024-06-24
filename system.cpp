@@ -504,6 +504,7 @@ void EmployeeSystem::calculate_average_salary(const string &type) {
     }
 }
 
+// 启动系统函数
 void EmployeeSystem::startEmployeeSalaryManagementSystem() {
     // 读取雇员信息，采用异常处理机制，读取失败则抛出异常
     try {
@@ -549,6 +550,7 @@ void EmployeeSystem::startEmployeeSalaryManagementSystem() {
             cout << "请输入您的选择：" << endl;
             cin >> choice;
 
+            // 不同的选择对应不同的操作
             switch (choice) {
                 case 1: {
                     cout << "查询雇员信息..." << endl;

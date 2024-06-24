@@ -14,9 +14,11 @@ using namespace std;
 
 class EmployeeSystem {
 private:
+    // 存取雇员的vector容器
     vector<CEmployee *> employees;
 
 public:
+    // 构造函数
     EmployeeSystem() = default;
 
     // 读取雇员信息的函数
@@ -49,6 +51,7 @@ public:
     // 按照类型来计算相应员工的薪水信息
     void calculate_average_salary(const string &type);
 
+    // 启动系统函数
     void startEmployeeSalaryManagementSystem();
 };
 
